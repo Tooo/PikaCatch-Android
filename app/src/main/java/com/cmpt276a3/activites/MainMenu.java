@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.cmpt276a3.R;
 
-public class MainActivity extends AppCompatActivity {
+public class MainMenu extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
