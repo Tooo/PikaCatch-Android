@@ -1,10 +1,19 @@
 package com.cmpt276a3.model;
 
 public class Cell {
-    private boolean hasMine;
-    private int scanNumber;
+    private boolean isClicked = false;
+    private boolean hasMine = false;
+    private int scanNumber = 0;
 
-    public boolean isHasMine() {
+    public boolean isClicked() {
+        return isClicked;
+    }
+
+    public void setClicked(boolean clicked) {
+        isClicked = clicked;
+    }
+
+    public boolean hasMine() {
         return hasMine;
     }
 

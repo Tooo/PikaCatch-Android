@@ -8,6 +8,7 @@ import android.os.Bundle;
 
 import com.cmpt276a3.R;
 import com.cmpt276a3.model.Board;
+import com.cmpt276a3.model.Cell;
 import com.cmpt276a3.model.Game;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -54,8 +55,6 @@ public class GameScreen extends AppCompatActivity {
                         TableRow.LayoutParams.MATCH_PARENT,
                         1.0f));
 
-                button.setText("" + x + "," + y);
-
                 // Make text not clip on small buttons
                 button.setPadding(0, 0,0,0);
                 button.setOnClickListener(new View.OnClickListener() {
@@ -74,14 +73,27 @@ public class GameScreen extends AppCompatActivity {
     private void cellButtonClicked(int x, int y) {
         Button button = buttons[y][x];
 
-        lockButtonSizes();
+        Board board = game.getBoard();
+        Cell cell = board.getBoardArray()[y][x];
 
-        int newWidth = button.getWidth();
-        int newHeight = button.getHeight();
-        Bitmap originalBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.pikachu);
-        Bitmap scaledBitmap = Bitmap.createScaledBitmap(originalBitmap, newWidth, newHeight, true);
-        Resources resource = getResources();
-        button.setBackground(new BitmapDrawable(resource, scaledBitmap));
+        game.scanMines(x, y);
+
+        if (cell.hasMine()) {
+            lockButtonSizes();
+            updateCellNumbers(x, y);
+
+            int newWidth = button.getWidth();
+            int newHeight = button.getHeight();
+            Bitmap originalBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.pikachu);
+            Bitmap scaledBitmap = Bitmap.createScaledBitmap(originalBitmap, newWidth, newHeight, true);
+            Resources resource = getResources();
+            button.setBackground(new BitmapDrawable(resource, scaledBitmap));
+        } else {
+            button.setText("" + cell.getScanNumber());
+
+        }
+
+
     }
 
     private void lockButtonSizes() {
@@ -97,6 +109,27 @@ public class GameScreen extends AppCompatActivity {
                 button.setMinHeight(height);
                 button.setMaxHeight(height);
 
+            }
+        }
+    }
+
+    private void updateCellNumbers(int xScan, int yScan) {
+        Board board = game.getBoard();
+        // Scan row
+        for (int x = 0; x < width; x++) {
+            Cell cell = board.getBoardArray()[yScan][x];
+            Button button = buttons[yScan][x];
+            if (cell.isClicked()) {
+                button.setText("" + cell.getScanNumber());
+            }
+        }
+
+        // Scan column
+        for (int y = 0; y < height; y++) {
+            Cell cell = board.getBoardArray()[y][xScan];
+            Button button = buttons[y][xScan];
+            if (cell.isClicked()) {
+                button.setText("" + cell.getScanNumber());
             }
         }
     }

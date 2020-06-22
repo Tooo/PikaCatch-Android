@@ -19,21 +19,21 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/game_txtScans"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="# Scans used: ?"
-            android:textAlignment="viewStart"
-            android:textSize="18sp" />
-
-        <TextView
             android:id="@+id/game_txtMines"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Found ? of ? Mines"
-            android:textAlignment="textEnd"
+            android:textAlignment="viewStart"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/game_txtScans"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="# Scans used: ?"
+            android:textAlignment="viewEnd"
             android:textSize="18sp" />
 
     </LinearLayout>
