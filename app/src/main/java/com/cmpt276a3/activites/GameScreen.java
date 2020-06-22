@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TextView;
 
 public class GameScreen extends AppCompatActivity {
     Game game = new Game();
@@ -30,6 +31,7 @@ public class GameScreen extends AppCompatActivity {
         setContentView(R.layout.activity_game_screen);
 
         populateBoard(game);
+        updateText(game);
     }
 
     // Refer to Brian Fraser video: Dynamic Buttons with Images: Android Programming
@@ -72,13 +74,12 @@ public class GameScreen extends AppCompatActivity {
 
     private void cellButtonClicked(int x, int y) {
         Button button = buttons[y][x];
-
         Board board = game.getBoard();
-        Cell cell = board.getBoardArray()[y][x];
+        Cell[][] boardArray = board.getBoardArray();
+        Cell cell = boardArray[y][x];
 
-        game.scanMines(x, y);
-
-        if (cell.hasMine()) {
+        if (cell.hasMine() && !cell.isClicked()) {
+            game.scanMines(x, y);
             lockButtonSizes();
             updateCellNumbers(x, y);
 
@@ -89,9 +90,11 @@ public class GameScreen extends AppCompatActivity {
             Resources resource = getResources();
             button.setBackground(new BitmapDrawable(resource, scaledBitmap));
         } else {
-            button.setText("" + cell.getScanNumber());
-
+            game.scanMines(x, y);
+            setScanNumberText(x, y);
         }
+
+       updateText(game);
 
 
     }
@@ -117,20 +120,32 @@ public class GameScreen extends AppCompatActivity {
         Board board = game.getBoard();
         // Scan row
         for (int x = 0; x < width; x++) {
-            Cell cell = board.getBoardArray()[yScan][x];
-            Button button = buttons[yScan][x];
-            if (cell.isClicked()) {
-                button.setText("" + cell.getScanNumber());
-            }
+            setScanNumberText(x, yScan);
         }
 
         // Scan column
         for (int y = 0; y < height; y++) {
-            Cell cell = board.getBoardArray()[y][xScan];
-            Button button = buttons[y][xScan];
-            if (cell.isClicked()) {
-                button.setText("" + cell.getScanNumber());
-            }
+            setScanNumberText(xScan, y);
         }
+    }
+
+    private void setScanNumberText(int x, int y) {
+        Board board = game.getBoard();
+        Cell cell = board.getBoardArray()[y][x];
+        Button button = buttons[y][x];
+        if (cell.isClicked()) {
+            button.setText("" + cell.getScanNumber());
+        }
+    }
+
+    private void updateText(Game game) {
+        TextView textMine = findViewById(R.id.game_txtMines);
+        textMine.setText("Found " + game.getFoundMines() + " of " + game.getTotalMines() + " Mines");
+
+        TextView textScan = findViewById(R.id.game_txtScans);
+        textScan.setText("# of Scans used: " + game.getScansUsed());
+
+        TextView textPlayed = findViewById(R.id.game_txtPlayed);
+        textPlayed.setText("Times Played:");
     }
 }

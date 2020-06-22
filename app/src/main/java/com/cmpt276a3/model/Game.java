@@ -46,7 +46,7 @@ public class Game {
             // Scan row
             for (int x = 0; x < width; x++) {
                 Cell cell = boardArray[yScan][x];
-                if (cell.hasMine() && !cell.isClicked()) {
+                if (!cell.hasMine() && cell.isClicked()) {
                     cell.setScanNumber(cell.getScanNumber()-1);
                 }
             }
@@ -54,7 +54,7 @@ public class Game {
             // Scan column
             for (int y = 0; y < height; y++) {
                 Cell cell = boardArray[y][xScan];
-                if (cell.hasMine() && !cell.isClicked()) {
+                if (!cell.hasMine() && cell.isClicked()) {
                     cell.setScanNumber(cell.getScanNumber()-1);
                 }
             }
