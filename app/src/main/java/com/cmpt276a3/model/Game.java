@@ -1,13 +1,12 @@
 package com.cmpt276a3.model;
 
 public class Game {
-    private Board board;
+    private Board board = new Board();
     private int foundMines;
     private int totalMines;
     private int scansUsed;
 
     public Game() {
-
     }
 
     public Board getBoard() {
