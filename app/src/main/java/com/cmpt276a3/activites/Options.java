@@ -12,8 +12,8 @@ import android.widget.Spinner;
 import com.cmpt276a3.R;
 
 public class Options extends AppCompatActivity {
-    int[] mineChoices = {6, 10, 15, 20};
-    int[][] boardChoices = {{4,6}, {5,10}, {6,15}};
+    int[][] boardChoices;
+    int[] mineChoices;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +26,23 @@ public class Options extends AppCompatActivity {
     }
 
     private void setupBoardSelector() {
-        final String[] boardStringList = new String[boardChoices.length];
-        for (int i = 0; i<boardChoices.length; i++) {
-            boardStringList[i] = boardChoices[i][0] + " x " + boardChoices[i][1];
+        int rows;
+        int cols;
+        String[] boardResource = getResources().getStringArray(R.array.board_size);
+        String[] boardStringList = new String[boardResource.length];
+        boardChoices = new int[boardResource.length][2];
+
+        for (int i = 0; i < boardResource.length; i++) {
+            String[] boardNumbers = boardResource[i].split(",");
+            rows = Integer.parseInt(boardNumbers[0]);
+            cols = Integer.parseInt(boardNumbers[1]);
+            boardChoices[i][0] = rows;
+            boardChoices[i][1] = cols;
+
+            boardStringList[i] = rows + " x " + cols;
         }
+
+
 
         Spinner spinner = findViewById(R.id.opt_spinBoard);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(Options.this, android.R.layout.simple_spinner_item, boardStringList);
@@ -53,11 +66,14 @@ public class Options extends AppCompatActivity {
     }
 
     private void setupMinesSelector() {
-        String[] mineStringList = new String[mineChoices.length];
-        for (int i = 0; i<mineChoices.length; i++) {
+        mineChoices = getResources().getIntArray(R.array.mine_count);
+        int mineCount = mineChoices.length;
+        String[] mineStringList = new String[mineCount];
+
+
+        for (int i = 0; i<mineCount; i++) {
             mineStringList[i] = mineChoices[i] + "";
         }
-
 
         Spinner spinner = findViewById(R.id.opt_spinMines);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(Options.this, android.R.layout.simple_spinner_item, mineStringList);

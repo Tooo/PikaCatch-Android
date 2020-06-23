@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="board_size">
+        <item>4,6</item>
+        <item>5,10</item>
+        <item>6,15</item>
+    </string-array>
+    
+    <integer-array name="mine_count">
+        <item>6</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+    </integer-array>
+</resources>

@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">cmpt276A3</string>
     <string name="title_activity_game_screen">GameScreen</string>
+    <string name="main_menu">Main Menu</string>
 </resources>
