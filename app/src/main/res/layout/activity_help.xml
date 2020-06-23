@@ -7,16 +7,6 @@
     tools:context=".activites.Help">
 
     <TextView
-        android:id="@+id/help_txtPoGo2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="280dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/link_emma"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/help_imgPokeball3" />
-
-    <TextView
         android:id="@+id/help_txtAuthorT3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -114,6 +104,16 @@
         app:layout_constraintEnd_toEndOf="@+id/help_imgPikachu"
         app:layout_constraintStart_toStartOf="@+id/help_imgPokeball"
         app:layout_constraintTop_toBottomOf="@+id/help_imgPokeball" />
+
+    <TextView
+        android:id="@+id/help_txtEmma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="280dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/link_emma"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/help_imgPokeball3" />
 
     <ImageView
         android:id="@+id/help_imgPokeball"

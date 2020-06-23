@@ -15,11 +15,15 @@ public class Help extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help);
 
-        setupCourseLink();
+        setupLinks();
     }
 
-    private void setupCourseLink() {
-        TextView textView = findViewById(R.id.help_txtCourse);
-        textView.setMovementMethod(LinkMovementMethod.getInstance());
+    private void setupLinks() {
+        int[] idLinks = {R.id.help_txtCourse, R.id.help_txtPoGo, R.id.help_txtEmma};
+
+        for (int link:idLinks) {
+            TextView textView = findViewById(link);
+            textView.setMovementMethod(LinkMovementMethod.getInstance());
+        }
     }
 }
