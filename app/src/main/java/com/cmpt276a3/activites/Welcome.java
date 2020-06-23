@@ -44,11 +44,7 @@ public class Welcome extends AppCompatActivity {
     private void animateImages() {
         ImageView imagePikachu = findViewById(R.id.welc_imgPikachu);
         ImageView imagePokeball = findViewById(R.id.welc_imgPokeball);
-        Guideline guideline = findViewById(R.id.welc_lineMid);
         AnimatorSet animatorSet = new AnimatorSet();
-        AnimatorSet shake = new AnimatorSet();
-        //float midX = guideline.getX();
-        //float pikachuX = imagePikachu.getX();
 
         ObjectAnimator pikachuMove = ObjectAnimator.ofFloat(imagePikachu, "translationX", -750);
         pikachuMove.setDuration(2000);
@@ -56,14 +52,17 @@ public class Welcome extends AppCompatActivity {
         ObjectAnimator pikachuHide = ObjectAnimator.ofFloat(imagePikachu, "alpha", 0);
         pikachuHide.setDuration(500);
 
+        ObjectAnimator pikachuShake = ObjectAnimator.ofFloat(imagePikachu, "rotation", 360);
+        pikachuHide.setDuration(500);
+
         ObjectAnimator pokeballShake = ObjectAnimator.ofFloat(imagePokeball, "rotationX", 1800);
         pokeballShake.setDuration(500);
 
         animatorSet.play(pikachuMove).before(pikachuHide);
+        animatorSet.play(pikachuHide).with(pikachuShake);
         animatorSet.play(pokeballShake).after(pikachuHide);
 
         animatorSet.start();
-
     }
 
     // Refer to StackOverflow
