@@ -1,10 +1,15 @@
 package com.cmpt276a3.activites;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.Guideline;
 
+import android.animation.Animator;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Layout;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -39,7 +44,25 @@ public class Welcome extends AppCompatActivity {
     private void animateImages() {
         ImageView imagePikachu = findViewById(R.id.welc_imgPikachu);
         ImageView imagePokeball = findViewById(R.id.welc_imgPokeball);
+        Guideline guideline = findViewById(R.id.welc_lineMid);
+        AnimatorSet animatorSet = new AnimatorSet();
+        AnimatorSet shake = new AnimatorSet();
+        //float midX = guideline.getX();
+        //float pikachuX = imagePikachu.getX();
 
+        ObjectAnimator pikachuMove = ObjectAnimator.ofFloat(imagePikachu, "translationX", -750);
+        pikachuMove.setDuration(2000);
+
+        ObjectAnimator pikachuHide = ObjectAnimator.ofFloat(imagePikachu, "alpha", 0);
+        pikachuHide.setDuration(500);
+
+        ObjectAnimator pokeballShake = ObjectAnimator.ofFloat(imagePokeball, "rotationX", 1800);
+        pokeballShake.setDuration(500);
+
+        animatorSet.play(pikachuMove).before(pikachuHide);
+        animatorSet.play(pokeballShake).after(pikachuHide);
+
+        animatorSet.start();
 
     }
 
@@ -53,7 +76,7 @@ public class Welcome extends AppCompatActivity {
                     exitWelcome();
                 }
             }
-        }, 2000);
+        }, 7000);
 
     }
 
