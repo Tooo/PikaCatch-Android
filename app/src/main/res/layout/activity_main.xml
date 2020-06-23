@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".activites.MainMenu">
 
+    <ImageButton
+        android:id="@+id/main_imgbtnOptions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_launcher_foreground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.078"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_txtMainMenu"
+        app:layout_constraintVertical_bias="0.519" />
+
     <TextView
         android:id="@+id/main_txtMainMenu"
         android:layout_width="wrap_content"

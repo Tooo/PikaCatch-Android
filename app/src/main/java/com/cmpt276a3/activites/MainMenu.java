@@ -18,6 +18,7 @@ public class MainMenu extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         setupStartButton();
+        setupOptionsButton();
     }
 
     private void setupStartButton() {
@@ -27,6 +28,18 @@ public class MainMenu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainMenu.this, GameScreen.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void setupOptionsButton() {
+        ImageButton imageButton = findViewById(R.id.main_imgbtnOptions);
+        imageButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainMenu.this, Options.class);
                 startActivity(intent);
             }
         });
