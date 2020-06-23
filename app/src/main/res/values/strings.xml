@@ -7,4 +7,7 @@
     <string name="help">Help</string>
     <string name="pikacatch">PikaCatch</string>
     <string name="skip">Skip</string>
+    <string name="travis_chan">Travis Chan</string>
+    <string name="pikachu">Pikachu</string>
+    <string name="pokeball">Pokeball</string>
 </resources>
