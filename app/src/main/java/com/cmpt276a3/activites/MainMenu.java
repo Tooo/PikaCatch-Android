@@ -1,6 +1,7 @@
 package com.cmpt276a3.activites;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.IntentCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,6 +21,7 @@ public class MainMenu extends AppCompatActivity {
 
         setupStartButton();
         setupOptionsButton();
+        setupHelpButton();
     }
 
     private void setupStartButton() {
@@ -41,6 +43,17 @@ public class MainMenu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainMenu.this, Options.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void setupHelpButton() {
+        Button button = findViewById(R.id.main_btnHelp);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainMenu.this, Help.class);
                 startActivity(intent);
             }
         });

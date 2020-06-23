@@ -6,4 +6,153 @@
     android:layout_height="match_parent"
     tools:context=".activites.Help">
 
+    <TextView
+        android:id="@+id/help_txtAuthorT3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="196dp"
+        android:layout_marginTop="8dp"
+        android:text="Class:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/help_txtInfoT" />
+
+    <TextView
+        android:id="@+id/help_txtHelp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/help"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/help_txtInfoT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/about_author"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/help_txtHelp" />
+
+    <TextView
+        android:id="@+id/help_txtPlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/how_to_play"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/help_txtAuthorT3" />
+
+    <TextView
+        android:id="@+id/help_txtAuthorT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/author"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/help_txtInfoT" />
+
+    <TextView
+        android:id="@+id/help_txtAuthorT2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/author_name"
+        app:layout_constraintStart_toEndOf="@+id/help_txtAuthorT"
+        app:layout_constraintTop_toBottomOf="@+id/help_txtInfoT" />
+
+    <TextView
+        android:id="@+id/help_txtImages"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:linksClickable="false"
+        android:text="@string/images_used"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <TextView
+        android:id="@+id/help_txtCourse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/link_cmpt276"
+        app:layout_constraintStart_toEndOf="@+id/help_txtAuthorT3"
+        app:layout_constraintTop_toBottomOf="@+id/help_txtInfoT" />
+
+    <TextView
+        android:id="@+id/help_txtPoGo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/link_pokemongo"
+        app:layout_constraintEnd_toEndOf="@+id/help_imgPikachu"
+        app:layout_constraintStart_toStartOf="@+id/help_imgPokeball"
+        app:layout_constraintTop_toBottomOf="@+id/help_imgPokeball" />
+
+    <TextView
+        android:id="@+id/help_txtEmma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="280dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/link_emma"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/help_imgPokeball3" />
+
+    <ImageView
+        android:id="@+id/help_imgPokeball"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/help_txtImages"
+        app:srcCompat="@drawable/pokeball" />
+
+    <ImageView
+        android:id="@+id/help_imgPikachu"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toEndOf="@+id/help_imgPokeball"
+        app:layout_constraintTop_toBottomOf="@+id/help_txtImages"
+        app:srcCompat="@drawable/pikachu" />
+
+    <ImageView
+        android:id="@+id/help_imgPokeball3"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="176dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toEndOf="@+id/help_imgPokeball"
+        app:layout_constraintTop_toBottomOf="@+id/help_txtImages"
+        app:srcCompat="@drawable/pikaball" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/htp_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/help_txtPlay" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

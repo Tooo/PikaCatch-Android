@@ -7,7 +7,20 @@
     <string name="help">Help</string>
     <string name="pikacatch">PikaCatch</string>
     <string name="skip">Skip</string>
-    <string name="travis_chan">Travis Chan</string>
+    <string name="author_name">Travis Chan</string>
     <string name="pikachu">Pikachu</string>
     <string name="pokeball">Pokeball</string>
+    <string name="about_author">About Author</string>
+    <string name="link_cmpt276"><a href="https://opencoursehub.cs.sfu.ca/jackt/grav-cms/cmpt276/home">CMPT 276</a></string>
+    <string name="link_pokemongo"><a href="https://pokemongolive.com/en/">Pokemon Go</a></string>
+    <string name="link_emma"><a href="https://www.deviantart.com/emma2727">Emma2727 Deviant Art</a></string>
+    <string name="how_to_play">How to Play</string>
+    <string name="htp_content"> PikaCatch is a game where the player tries to find all the Pikachu hiding in the Poke Balls.
+                                \nA given amount of Pikachu will hide in a set amount of Poke Balls and both can be changed in the options.
+                                \nThe player can open the Poke Ball, either revealing a Pikachu or a number.
+                                \nThis number shows the amount of hidden Pikachu in same row and column.
+                                \nThe objective of the game is to find all the Pikachu with the fewest number of scans.</string>
+    <string name="images_used">Images Used</string>
+    <string name="images_content">About Game</string>
+    <string name="author">Author:</string>
 </resources>
