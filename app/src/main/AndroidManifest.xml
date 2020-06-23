@@ -10,16 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity
+            android:name=".activites.MainMenu"
+            android:screenOrientation="landscape" />
+        <activity
             android:name=".activites.Help"
-            android:screenOrientation="landscape"/>
+            android:screenOrientation="landscape" />
         <activity
             android:name=".activites.Options"
-            android:screenOrientation="landscape"/>
+            android:screenOrientation="landscape" />
         <activity
             android:name=".activites.GameScreen"
-            android:screenOrientation="landscape"/>
+            android:screenOrientation="landscape" />
         <activity
-            android:name=".activites.MainMenu"
+            android:name=".activites.Welcome"
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

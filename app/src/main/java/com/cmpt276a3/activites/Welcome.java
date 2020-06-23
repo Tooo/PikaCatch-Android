@@ -1,31 +1,35 @@
 package com.cmpt276a3.activites;
 
-import android.app.Dialog;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 
 import com.cmpt276a3.R;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatDialogFragment;
+public class Welcome extends AppCompatActivity {
 
-/**
- *
- */
-public class Welcome extends AppCompatDialogFragment {
-
-    @NonNull
     @Override
-    // Refer to Brian Fraser video: AlertDialog via Fragment: Android Programming
-    public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        // Create the view to show
-        View v = LayoutInflater.from(getActivity())
-                .inflate(R.layout.welcome_message, null);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_welcome);
 
-        //
+        setupSkipButton();
 
-        return super.onCreateDialog(savedInstanceState);
+    }
+
+    private void setupSkipButton() {
+        Button button = findViewById(R.id.welc_btnSkip);
+        button.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Welcome.this, MainMenu.class);
+                finish();
+                startActivity(intent);
+            }
+        });
     }
 }

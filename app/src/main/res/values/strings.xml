@@ -1,8 +1,10 @@
 <resources>
-    <string name="app_name">cmpt276A3</string>
+    <string name="app_name">PikaCatch</string>
     <string name="title_activity_game_screen">GameScreen</string>
     <string name="main_menu">Main Menu</string>
     <string name="play_game">Play Game!</string>
     <string name="options">Options</string>
     <string name="help">Help</string>
+    <string name="pikacatch">PikaCatch</string>
+    <string name="skip">Skip</string>
 </resources>

@@ -13,6 +13,7 @@ import com.cmpt276a3.model.Cell;
 import com.cmpt276a3.model.Game;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.View;
 import android.widget.Button;
@@ -119,7 +120,11 @@ public class GameScreen extends AppCompatActivity {
             button.setBackground(null);
         }
 
-       updateText();
+        updateText();
+
+        if (game.getTotalMines() == game.getFoundMines()) {
+            endGame();
+        }
 
     }
 
@@ -169,5 +174,11 @@ public class GameScreen extends AppCompatActivity {
 
         TextView textPlayed = findViewById(R.id.game_txtPlayed);
         textPlayed.setText("Times Played:");
+    }
+
+    private void endGame() {
+        FragmentManager manager = getSupportFragmentManager();
+        Congrats dialog = new Congrats();
+        dialog.show(manager, "Congrats");
     }
 }
