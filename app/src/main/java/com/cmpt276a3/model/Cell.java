@@ -3,6 +3,7 @@ package com.cmpt276a3.model;
 public class Cell {
     private boolean isClicked = false;
     private boolean hasMine = false;
+    private boolean hasScanned = false;
     private int scanNumber = 0;
 
     public boolean isClicked() {
@@ -19,6 +20,14 @@ public class Cell {
 
     public void setHasMine(boolean hasMine) {
         this.hasMine = hasMine;
+    }
+
+    public boolean hasScanned() {
+        return hasScanned;
+    }
+
+    public void setHasScanned(boolean hasScanned) {
+        this.hasScanned = hasScanned;
     }
 
     public int getScanNumber() {

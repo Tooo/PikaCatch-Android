@@ -17,7 +17,7 @@ public class Game {
         int height = board.getHeight();
         int width = board.getWidth();
         Cell[][] boardArray = board.getBoardArray();
-        boolean isValidMine = false;
+        boolean isValidMine;
 
         for (int i = 0; i<totalMines; i++) {
             isValidMine = false;
@@ -33,38 +33,27 @@ public class Game {
         }
     }
 
-    public void scanMines(int xScan, int yScan) {
+    public void cellClicked(int xScan, int yScan) {
         Cell[][] boardArray = board.getBoardArray();
         Cell scanCell = boardArray[yScan][xScan];
         int height = board.getHeight();
         int width = board.getWidth();
 
+        // Mine found
         if (scanCell.hasMine() && !scanCell.isClicked()) {
-            foundMines++;
-            scanCell.setClicked(true);
-
-            // Scan row
-            for (int x = 0; x < width; x++) {
-                Cell cell = boardArray[yScan][x];
-                if (!cell.hasMine() && cell.isClicked()) {
-                    cell.setScanNumber(cell.getScanNumber()-1);
-                }
-            }
-
-            // Scan column
-            for (int y = 0; y < height; y++) {
-                Cell cell = boardArray[y][xScan];
-                if (!cell.hasMine() && cell.isClicked()) {
-                    cell.setScanNumber(cell.getScanNumber()-1);
-                }
-            }
-
+            mineFound(xScan, yScan);
             return;
         }
-        int mineCount = 0;
 
-        scansUsed++;
+        // Already clicked non-mine or Scanned Mine
+        if (scanCell.hasScanned()) {
+            return;
+        }
+
         scanCell.setClicked(true);
+        scanCell.setHasScanned(true);
+        int mineCount = 0;
+        scansUsed++;
 
         // Scan row
         for (int x = 0; x < width; x++) {
@@ -83,9 +72,33 @@ public class Game {
         }
 
         scanCell.setScanNumber(mineCount);
-
     }
 
+    private void mineFound(int xScan, int yScan) {
+        Cell[][] boardArray = board.getBoardArray();
+        Cell scanCell = boardArray[yScan][xScan];
+        int height = board.getHeight();
+        int width = board.getWidth();
+
+        scanCell.setClicked(true);
+        foundMines++;
+
+        // Scan row
+        for (int x = 0; x < width; x++) {
+            Cell cell = boardArray[yScan][x];
+            if (cell.hasScanned()) {
+                cell.setScanNumber(cell.getScanNumber()-1);
+            }
+        }
+
+        // Scan column
+        for (int y = 0; y < height; y++) {
+            Cell cell = boardArray[y][xScan];
+            if (cell.hasScanned()) {
+                cell.setScanNumber(cell.getScanNumber()-1);
+            }
+        }
+    }
 
     public Board getBoard() {
         return board;
@@ -95,23 +108,11 @@ public class Game {
         return foundMines;
     }
 
-    public void setFoundMines(int foundMines) {
-        this.foundMines = foundMines;
-    }
-
     public int getTotalMines() {
         return totalMines;
     }
 
-    public void setTotalMines(int totalMines) {
-        this.totalMines = totalMines;
-    }
-
     public int getScansUsed() {
         return scansUsed;
-    }
-
-    public void setScansUsed(int scansUsed) {
-        this.scansUsed = scansUsed;
     }
 }

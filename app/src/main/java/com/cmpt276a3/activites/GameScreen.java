@@ -23,28 +23,30 @@ public class GameScreen extends AppCompatActivity {
     Game game = new Game();
     int height = game.getBoard().getHeight();
     int width = game.getBoard().getWidth();
-    Button buttons[][] = new Button[height][width];
+    Button[][] buttons = new Button[height][width];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_screen);
 
-        populateBoard(game);
-        updateText(game);
+        populateBoard();
+        updateText();
     }
 
     // Refer to Brian Fraser video: Dynamic Buttons with Images: Android Programming
-    private void populateBoard(Game game) {
+    private void populateBoard() {
         TableLayout table = findViewById(R.id.game_tableBoard);
-        Board board = game.getBoard();
 
         for (int y = 0; y < height; y++) {
             TableRow tableRow = new TableRow(this);
+
             tableRow.setLayoutParams(new TableLayout.LayoutParams(
                     TableLayout.LayoutParams.MATCH_PARENT,
                     TableLayout.LayoutParams.MATCH_PARENT,
                     1.0f));
+
+
             table.addView(tableRow);
 
             for (int x = 0; x < width; x++) {
@@ -52,10 +54,16 @@ public class GameScreen extends AppCompatActivity {
                 final int FINAL_Y = y;
 
                 Button button = new Button(this);
+
                 button.setLayoutParams(new TableRow.LayoutParams(
                         TableRow.LayoutParams.MATCH_PARENT,
                         TableRow.LayoutParams.MATCH_PARENT,
                         1.0f));
+
+                Bitmap originalBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.pokeball);
+                Bitmap scaledBitmap = Bitmap.createScaledBitmap(originalBitmap, 100, 100, true);
+                Resources resource = getResources();
+                button.setBackground(new BitmapDrawable(resource, scaledBitmap));
 
                 // Make text not clip on small buttons
                 button.setPadding(0, 0,0,0);
@@ -70,6 +78,7 @@ public class GameScreen extends AppCompatActivity {
 
             }
         }
+        lockButtonSizes();
     }
 
     private void cellButtonClicked(int x, int y) {
@@ -78,10 +87,11 @@ public class GameScreen extends AppCompatActivity {
         Cell[][] boardArray = board.getBoardArray();
         Cell cell = boardArray[y][x];
 
-        if (cell.hasMine() && !cell.isClicked()) {
-            game.scanMines(x, y);
+        game.cellClicked(x, y);
+        if (cell.hasMine() && !cell.hasScanned()) {
+
+            updateCellNumbers(x,y);
             lockButtonSizes();
-            updateCellNumbers(x, y);
 
             int newWidth = button.getWidth();
             int newHeight = button.getHeight();
@@ -89,13 +99,15 @@ public class GameScreen extends AppCompatActivity {
             Bitmap scaledBitmap = Bitmap.createScaledBitmap(originalBitmap, newWidth, newHeight, true);
             Resources resource = getResources();
             button.setBackground(new BitmapDrawable(resource, scaledBitmap));
-        } else {
-            game.scanMines(x, y);
+
+        } else if (cell.hasMine() && cell.hasScanned()) {
             setScanNumberText(x, y);
+        } else {
+            setScanNumberText(x, y);
+            button.setBackground(null);
         }
 
-       updateText(game);
-
+       updateText();
 
     }
 
@@ -104,20 +116,18 @@ public class GameScreen extends AppCompatActivity {
             for (int x = 0; x < width; x++) {
                 Button button = buttons[y][x];
 
-                int width = button.getWidth();
-                button.setMinWidth(width);
-                button.setMaxWidth(width);
+                int buttonWidth = button.getWidth();
+                button.setMinWidth(buttonWidth);
+                button.setMaxWidth(buttonWidth);
 
-                int height = button.getHeight();
-                button.setMinHeight(height);
-                button.setMaxHeight(height);
-
+                int buttonHeight = button.getHeight();
+                button.setMinHeight(buttonHeight);
+                button.setMaxHeight(buttonHeight);
             }
         }
     }
 
     private void updateCellNumbers(int xScan, int yScan) {
-        Board board = game.getBoard();
         // Scan row
         for (int x = 0; x < width; x++) {
             setScanNumberText(x, yScan);
@@ -133,12 +143,12 @@ public class GameScreen extends AppCompatActivity {
         Board board = game.getBoard();
         Cell cell = board.getBoardArray()[y][x];
         Button button = buttons[y][x];
-        if (cell.isClicked()) {
+        if (cell.hasScanned()) {
             button.setText("" + cell.getScanNumber());
         }
     }
 
-    private void updateText(Game game) {
+    private void updateText() {
         TextView textMine = findViewById(R.id.game_txtMines);
         textMine.setText("Found " + game.getFoundMines() + " of " + game.getTotalMines() + " Mines");
 
