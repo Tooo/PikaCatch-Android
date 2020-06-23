@@ -1,5 +1,6 @@
 package com.cmpt276a3.activites;
 
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -20,18 +21,29 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 public class GameScreen extends AppCompatActivity {
-    Game game = new Game();
-    int height = game.getBoard().getHeight();
-    int width = game.getBoard().getWidth();
-    Button[][] buttons = new Button[height][width];
+    Game game;
+    int height;
+    int width;
+    Button[][] buttons;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_screen);
 
+        createBoard();
         populateBoard();
         updateText();
+    }
+
+    private void createBoard() {
+        SharedPreferences sharedPreferences = getSharedPreferences("shared", MODE_PRIVATE);
+        height = sharedPreferences.getInt("height", 4);
+        width = sharedPreferences.getInt("width", 6);
+        int mines = sharedPreferences.getInt("mines", 6);
+
+        game = new Game(height, width, mines);
+        buttons = new Button[height][width];
     }
 
     // Refer to Brian Fraser video: Dynamic Buttons with Images: Android Programming

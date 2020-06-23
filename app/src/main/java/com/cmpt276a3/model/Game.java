@@ -3,12 +3,14 @@ package com.cmpt276a3.model;
 import java.util.Random;
 
 public class Game {
-    private Board board = new Board();
+    private Board board;
     private int foundMines = 0;
-    private int totalMines = 6;
+    private int totalMines;
     private int scansUsed = 0;
 
-    public Game() {
+    public Game(int height, int width, int mines) {
+        board = new Board(height, width);
+        totalMines = mines;
         addMines();
     }
 
