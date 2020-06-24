@@ -21,11 +21,10 @@
         android:id="@+id/help_txtAuthorT3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="196dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="36dp"
         android:text="@string/school_class"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/help_txtInfoT" />
+        app:layout_constraintStart_toEndOf="@+id/help_txtAuthorT2"
+        app:layout_constraintTop_toTopOf="@+id/help_txtAuthorT2" />
 
     <TextView
         android:id="@+id/help_txtHelp"
@@ -40,48 +39,35 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/help_txtInfoT"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="4dp"
-        android:text="@string/about_author"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/help_txtHelp" />
-
-    <TextView
         android:id="@+id/help_txtPlay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
         android:text="@string/how_to_play"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/help_txtAuthorT3" />
+        app:layout_constraintTop_toBottomOf="@+id/help_txtAuthorT" />
 
     <TextView
         android:id="@+id/help_txtAuthorT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:text="@string/author"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/help_txtInfoT" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/help_txtAuthorT2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="4dp"
         android:text="@string/author_name"
         app:layout_constraintStart_toEndOf="@+id/help_txtAuthorT"
-        app:layout_constraintTop_toBottomOf="@+id/help_txtInfoT" />
+        app:layout_constraintTop_toTopOf="@+id/help_txtAuthorT" />
 
     <TextView
         android:id="@+id/help_txtImages"
@@ -94,17 +80,16 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        app:layout_constraintTop_toBottomOf="@+id/help_txtHTP" />
 
     <TextView
         android:id="@+id/help_txtCourse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="4dp"
         android:text="@string/link_cmpt276"
         app:layout_constraintStart_toEndOf="@+id/help_txtAuthorT3"
-        app:layout_constraintTop_toBottomOf="@+id/help_txtInfoT" />
+        app:layout_constraintTop_toTopOf="@+id/help_txtAuthorT3" />
 
     <TextView
         android:id="@+id/help_txtPoGo"
@@ -161,7 +146,7 @@
         app:srcCompat="@drawable/pikaball" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/help_txtHTP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
