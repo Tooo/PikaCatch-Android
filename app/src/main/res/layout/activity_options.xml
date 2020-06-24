@@ -19,6 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -35,6 +36,12 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
+            <Spinner
+                android:id="@+id/opt_spinBoard"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
             <TextView
                 android:id="@+id/opt_txtBoard"
                 android:layout_width="wrap_content"
@@ -42,12 +49,6 @@
                 android:layout_weight="1"
                 android:text="Board Size"
                 android:textSize="18sp" />
-
-            <Spinner
-                android:id="@+id/opt_spinBoard"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
 
         </LinearLayout>
 
@@ -57,6 +58,12 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
+            <Spinner
+                android:id="@+id/opt_spinMines"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
             <TextView
                 android:id="@+id/opt_txtMines"
                 android:layout_width="wrap_content"
@@ -65,14 +72,28 @@
                 android:text="# Mines"
                 android:textSize="18sp" />
 
-            <Spinner
-                android:id="@+id/opt_spinMines"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
         </LinearLayout>
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/opt_btnResetHigh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="140dp"
+        android:text="Reset HighScore"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <Button
+        android:id="@+id/opt_btnResetPlayed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="24dp"
+        android:text="Reset Games Played"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/opt_btnResetHigh" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

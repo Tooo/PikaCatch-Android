@@ -2,11 +2,13 @@ package com.cmpt276a3.activites;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 
 import com.cmpt276a3.R;
@@ -23,6 +25,8 @@ public class Options extends AppCompatActivity {
         setupBoardSelector();
         setupMinesSelector();
         loadOptions();
+        setupResetHighScore();
+        setupResetGamePlayed();
     }
 
     private void setupBoardSelector() {
@@ -120,5 +124,23 @@ public class Options extends AppCompatActivity {
         }
         mineSpinner.setSelection(indexMine);
 
+    }
+
+    private void setupResetHighScore() {
+        SharedPreferences sharedPreferences = getSharedPreferences("game stats", MODE_PRIVATE);
+
+    }
+    private void setupResetGamePlayed() {
+        Button button = findViewById(R.id.opt_btnResetPlayed);
+        button.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                SharedPreferences sharedPreferences = getSharedPreferences("game stats", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putInt("played", 0);
+                editor.apply();
+            }
+        });
     }
 }
