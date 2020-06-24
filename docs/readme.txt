@@ -1,4 +1,4 @@
-Todo:
+TODO:
 Welcome:
 - Done
 Main Menu

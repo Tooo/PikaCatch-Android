@@ -12,6 +12,10 @@ import android.widget.ImageButton;
 import com.cmpt276a3.R;
 import com.cmpt276a3.model.Game;
 
+/**
+ * MainMenu class manages the Main activity
+ * It creates the buttons on the Main Menu, which lead to other activities
+ */
 public class MainMenu extends AppCompatActivity {
 
     @Override

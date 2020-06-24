@@ -2,6 +2,11 @@ package com.cmpt276a3.model;
 
 import java.util.Random;
 
+/**
+ * Game class holds the main game logic of the game
+ * It holds the board and basic game information of mines and scans
+ * It handles the logic of adding mines and when cells are clicked
+ */
 public class Game {
     private Board board;
     private int foundMines = 0;
@@ -21,8 +26,10 @@ public class Game {
         Cell[][] boardArray = board.getBoardArray();
         boolean isValidMine;
 
+        // Randomly place mines, if doesn't have mine
         for (int i = 0; i<totalMines; i++) {
             isValidMine = false;
+
             while (!isValidMine) {
                 int y = random.nextInt(height);
                 int x = random.nextInt(width);

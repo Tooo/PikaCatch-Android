@@ -1,5 +1,9 @@
 package com.cmpt276a3.model;
 
+/**
+ * Cell class holds the cell element in the board
+ * It it holds isClicked, hasMine, hasScanned, and the scan number
+ */
 public class Cell {
     private boolean isClicked = false;
     private boolean hasMine = false;

@@ -8,6 +8,10 @@ import android.widget.TextView;
 
 import com.cmpt276a3.R;
 
+/**
+ *  Help class manages the help activity
+ *  It used to allow links to be clickable
+ */
 public class Help extends AppCompatActivity {
 
     @Override

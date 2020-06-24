@@ -1,5 +1,9 @@
 package com.cmpt276a3.model;
 
+/**
+ * Board class hold the game board contents
+ * It receives height and width and creates a board using Cell
+ */
 public class Board {
     private int width;
     private int height;

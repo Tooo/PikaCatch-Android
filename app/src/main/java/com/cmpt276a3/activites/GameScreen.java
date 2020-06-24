@@ -15,20 +15,21 @@ import com.cmpt276a3.model.Game;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
-import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+/**
+ * GameScreen class manages the displayed elements of the game
+ * It holds the game, button, and extra game stats
+ */
 public class GameScreen extends AppCompatActivity {
-    Game game;
-    Button[][] buttons;
-    int height;
-    int width;
-    int timesPlayed;
-    int highScore;
+    private Game game;
+    private Button[][] buttons;
+    private int timesPlayed;
+    private int highScore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,24 +37,58 @@ public class GameScreen extends AppCompatActivity {
         setContentView(R.layout.activity_game_screen);
 
         createBoard();
-        populateBoard();
         updateGameStats();
         updateInitialStats();
+        populateBoard();
     }
 
     private void createBoard() {
         SharedPreferences sharedPreferences = getSharedPreferences("board settings", MODE_PRIVATE);
-        height = sharedPreferences.getInt("height", 4);
-        width = sharedPreferences.getInt("width", 6);
+        int height = sharedPreferences.getInt("height", 4);
+        int width = sharedPreferences.getInt("width", 6);
         int mines = sharedPreferences.getInt("mines", 6);
 
         game = new Game(height, width, mines);
         buttons = new Button[height][width];
     }
 
+    private void updateGameStats() {
+        TextView textMine = findViewById(R.id.game_txtMines);
+        textMine.setText("Found " + game.getFoundMines() + " of " + game.getTotalMines() + " Pikachu");
+
+        TextView textScan = findViewById(R.id.game_txtScans);
+        textScan.setText("# of Scans used: " + game.getScansUsed());
+    }
+
+    private void updateInitialStats() {
+        Board board = game.getBoard();
+        int height = board.getHeight();
+        int width = board.getWidth();
+
+        SharedPreferences sharedPreferences = getSharedPreferences("game stats", MODE_PRIVATE);
+
+        timesPlayed = sharedPreferences.getInt("played", 0);
+        TextView textPlayed = findViewById(R.id.game_txtPlayed);
+        textPlayed.setText("Times Played: " + timesPlayed);
+
+        String setting = height + "x" + width + ", " + game.getTotalMines();
+        highScore = sharedPreferences.getInt(setting, -1);
+        TextView textHigh = findViewById(R.id.game_txtHighScore);
+
+        if (highScore == -1) {
+            textHigh.setText("HighScore for " + setting + " Pikachu: N/A");
+        } else {
+            textHigh.setText("HighScore for " + setting + " Pikachu:" + highScore);
+        }
+
+    }
+
     // Refer to Brian Fraser video: Dynamic Buttons with Images: Android Programming
     private void populateBoard() {
         TableLayout table = findViewById(R.id.game_tableBoard);
+        Board board = game.getBoard();
+        int height = board.getHeight();
+        int width = board.getWidth();
 
         for (int y = 0; y < height; y++) {
             TableRow tableRow = new TableRow(this);
@@ -126,6 +161,7 @@ public class GameScreen extends AppCompatActivity {
 
         updateGameStats();
 
+        // Check when game is over
         if (game.getTotalMines() == game.getFoundMines()) {
             endGame();
         }
@@ -133,6 +169,10 @@ public class GameScreen extends AppCompatActivity {
     }
 
     private void lockButtonSizes() {
+        Board board = game.getBoard();
+        int height = board.getHeight();
+        int width = board.getWidth();
+
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 Button button = buttons[y][x];
@@ -149,6 +189,10 @@ public class GameScreen extends AppCompatActivity {
     }
 
     private void updateCellNumbers(int xScan, int yScan) {
+        Board board = game.getBoard();
+        int height = board.getHeight();
+        int width = board.getWidth();
+
         // Scan row
         for (int x = 0; x < width; x++) {
             setScanNumberText(x, yScan);
@@ -164,47 +208,25 @@ public class GameScreen extends AppCompatActivity {
         Board board = game.getBoard();
         Cell cell = board.getBoardArray()[y][x];
         Button button = buttons[y][x];
+
         if (cell.hasScanned()) {
             button.setText("" + cell.getScanNumber());
         }
     }
 
-    private void updateGameStats() {
-        TextView textMine = findViewById(R.id.game_txtMines);
-        textMine.setText("Found " + game.getFoundMines() + " of " + game.getTotalMines() + " Pikachu");
-
-        TextView textScan = findViewById(R.id.game_txtScans);
-        textScan.setText("# of Scans used: " + game.getScansUsed());
-    }
-
-    private void updateInitialStats() {
-        SharedPreferences sharedPreferences = getSharedPreferences("game stats", MODE_PRIVATE);
-
-        timesPlayed = sharedPreferences.getInt("played", 0);
-        TextView textPlayed = findViewById(R.id.game_txtPlayed);
-        textPlayed.setText("Times Played: " + timesPlayed);
-
-        String setting = height + "x" + width + "," + game.getTotalMines();
-        highScore = sharedPreferences.getInt(setting, -1);
-        TextView textHigh = findViewById(R.id.game_txtHighScore);
-
-        if (highScore == -1) {
-            textHigh.setText("HighScore for " + setting + " Pikachu: N/A");
-        } else {
-            textHigh.setText("HighScore for " + setting + " Pikachu:" + highScore);
-        }
-
-    }
-
     private void endGame() {
+        Board board = game.getBoard();
+        int height = board.getHeight();
+        int width = board.getWidth();
+
         SharedPreferences sharedPreferences = getSharedPreferences("game stats", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
         timesPlayed++;
         editor.putInt("played", timesPlayed);
-        String setting = height + "x" + width + "," + game.getTotalMines();
 
         if (highScore == -1 || highScore > game.getScansUsed()) {
+            String setting = height + "x" + width + ", " + game.getTotalMines();
             editor.putInt(setting, game.getScansUsed());
         }
         editor.apply();

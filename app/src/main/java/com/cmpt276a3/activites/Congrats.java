@@ -16,7 +16,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDialogFragment;
 
 /**
- *
+ * Congrats class manages the congrats dialog, shown the game is over
+ * The dialog is represented with the congrats layout
  */
 public class Congrats extends AppCompatDialogFragment {
 

@@ -16,6 +16,10 @@ import android.widget.ImageView;
 
 import com.cmpt276a3.R;
 
+/**
+ * Welcome class manages the initial Welcome activity
+ * It includes the animation and a skip button
+ */
 public class Welcome extends AppCompatActivity {
     private boolean isActivityDone = false;
 

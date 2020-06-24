@@ -2,7 +2,6 @@ package com.cmpt276a3.activites;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -14,8 +13,8 @@ import android.widget.Spinner;
 import com.cmpt276a3.R;
 
 public class Options extends AppCompatActivity {
-    int[][] boardChoices;
-    int[] mineChoices;
+    private int[][] boardChoices;
+    private int[] mineChoices;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -131,7 +130,7 @@ public class Options extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         for (int[] boards:boardChoices) {
             for (int mines:mineChoices) {
-                String setting = boards[0] + "x" + boards[1] + "," + mines;
+                String setting = boards[0] + "x" + boards[1] + ", " + mines;
                 editor.putInt(setting, -1);
             }
         }
