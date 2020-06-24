@@ -2,11 +2,13 @@ package com.cmpt276a3.activites;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 
 import com.cmpt276a3.R;
@@ -23,6 +25,8 @@ public class Options extends AppCompatActivity {
         setupBoardSelector();
         setupMinesSelector();
         loadOptions();
+        setupResetHighScore();
+        setupResetGamePlayed();
     }
 
     private void setupBoardSelector() {
@@ -51,7 +55,7 @@ public class Options extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                SharedPreferences sharedPreferences = getSharedPreferences("shared", MODE_PRIVATE);
+                SharedPreferences sharedPreferences = getSharedPreferences("board settings", MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
 
                 editor.putInt("width", boardChoices[position][1]);
@@ -82,7 +86,7 @@ public class Options extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                SharedPreferences sharedPreferences = getSharedPreferences("shared", MODE_PRIVATE);
+                SharedPreferences sharedPreferences = getSharedPreferences("board settings", MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
 
                 editor.putInt("mines", mineChoices[position]);
@@ -98,7 +102,7 @@ public class Options extends AppCompatActivity {
     private void loadOptions() {
         Spinner mineSpinner = findViewById(R.id.opt_spinMines);
         Spinner boardSpinner = findViewById(R.id.opt_spinBoard);
-        SharedPreferences sharedPreferences = getSharedPreferences("shared", MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences("board settings", MODE_PRIVATE);
 
         int height = sharedPreferences.getInt("height", 4);
         int indexBoard = 0;
@@ -120,5 +124,30 @@ public class Options extends AppCompatActivity {
         }
         mineSpinner.setSelection(indexMine);
 
+    }
+
+    private void setupResetHighScore() {
+        SharedPreferences sharedPreferences = getSharedPreferences("game stats", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        for (int[] boards:boardChoices) {
+            for (int mines:mineChoices) {
+                String setting = boards[0] + "x" + boards[1] + "," + mines;
+                editor.putInt(setting, -1);
+            }
+        }
+        editor.apply();
+    }
+    private void setupResetGamePlayed() {
+        Button button = findViewById(R.id.opt_btnResetPlayed);
+        button.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                SharedPreferences sharedPreferences = getSharedPreferences("game stats", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putInt("played", 0);
+                editor.apply();
+            }
+        });
     }
 }

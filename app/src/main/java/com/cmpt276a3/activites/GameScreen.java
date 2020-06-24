@@ -23,9 +23,11 @@ import android.widget.TextView;
 
 public class GameScreen extends AppCompatActivity {
     Game game;
+    Button[][] buttons;
     int height;
     int width;
-    Button[][] buttons;
+    int timesPlayed;
+    int highScore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,11 +36,12 @@ public class GameScreen extends AppCompatActivity {
 
         createBoard();
         populateBoard();
-        updateText();
+        updateGameStats();
+        updateInitialStats();
     }
 
     private void createBoard() {
-        SharedPreferences sharedPreferences = getSharedPreferences("shared", MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences("board settings", MODE_PRIVATE);
         height = sharedPreferences.getInt("height", 4);
         width = sharedPreferences.getInt("width", 6);
         int mines = sharedPreferences.getInt("mines", 6);
@@ -120,7 +123,7 @@ public class GameScreen extends AppCompatActivity {
             button.setBackground(null);
         }
 
-        updateText();
+        updateGameStats();
 
         if (game.getTotalMines() == game.getFoundMines()) {
             endGame();
@@ -165,18 +168,46 @@ public class GameScreen extends AppCompatActivity {
         }
     }
 
-    private void updateText() {
+    private void updateGameStats() {
         TextView textMine = findViewById(R.id.game_txtMines);
         textMine.setText("Found " + game.getFoundMines() + " of " + game.getTotalMines() + " Mines");
 
         TextView textScan = findViewById(R.id.game_txtScans);
         textScan.setText("# of Scans used: " + game.getScansUsed());
+    }
 
+    private void updateInitialStats() {
+        SharedPreferences sharedPreferences = getSharedPreferences("game stats", MODE_PRIVATE);
+
+        timesPlayed = sharedPreferences.getInt("played", 0);
         TextView textPlayed = findViewById(R.id.game_txtPlayed);
-        textPlayed.setText("Times Played:");
+        textPlayed.setText("Times Played: " + timesPlayed);
+
+        String setting = height + "x" + width + "," + game.getTotalMines();
+        highScore = sharedPreferences.getInt(setting, -1);
+        TextView textHigh = findViewById(R.id.game_txtHighScore);
+
+        if (highScore == -1) {
+            textHigh.setText("HighScore for " + setting + " Pikachu: N/A");
+        } else {
+            textHigh.setText("HighScore for " + setting + " Pikachu:" + highScore);
+        }
+
     }
 
     private void endGame() {
+        SharedPreferences sharedPreferences = getSharedPreferences("game stats", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        timesPlayed++;
+        editor.putInt("played", timesPlayed);
+        String setting = height + "x" + width + "," + game.getTotalMines();
+
+        if (highScore == -1 || highScore > game.getScansUsed()) {
+            editor.putInt(setting, game.getScansUsed());
+        }
+        editor.apply();
+
         FragmentManager manager = getSupportFragmentManager();
         Congrats dialog = new Congrats();
         dialog.show(manager, "Congrats");
