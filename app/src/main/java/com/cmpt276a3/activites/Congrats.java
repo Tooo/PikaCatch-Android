@@ -28,7 +28,7 @@ public class Congrats extends AppCompatDialogFragment {
         View v = LayoutInflater.from(getActivity())
                 .inflate(R.layout.message_congrats, null);
 
-        //
+        // Button
         DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
@@ -40,7 +40,6 @@ public class Congrats extends AppCompatDialogFragment {
         };
 
         // Build the alert
-
         return new AlertDialog.Builder(getActivity())
                 .setTitle("Congratulations")
                 .setView(v)

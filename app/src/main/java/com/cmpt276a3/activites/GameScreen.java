@@ -171,7 +171,7 @@ public class GameScreen extends AppCompatActivity {
 
     private void updateGameStats() {
         TextView textMine = findViewById(R.id.game_txtMines);
-        textMine.setText("Found " + game.getFoundMines() + " of " + game.getTotalMines() + " Mines");
+        textMine.setText("Found " + game.getFoundMines() + " of " + game.getTotalMines() + " Pikachu");
 
         TextView textScan = findViewById(R.id.game_txtScans);
         textScan.setText("# of Scans used: " + game.getScansUsed());

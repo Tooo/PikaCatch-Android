@@ -18,13 +18,13 @@
         app:srcCompat="@drawable/partypikachu" />
 
     <TextView
-        android:id="@+id/help_txtAuthorT3"
+        android:id="@+id/help_txtClass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
         android:text="@string/school_class"
-        app:layout_constraintStart_toEndOf="@+id/help_txtAuthorT2"
-        app:layout_constraintTop_toTopOf="@+id/help_txtAuthorT2" />
+        app:layout_constraintStart_toEndOf="@+id/help_txtAuthor"
+        app:layout_constraintTop_toTopOf="@+id/help_txtAuthor" />
 
     <TextView
         android:id="@+id/help_txtHelp"
@@ -61,7 +61,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/help_txtAuthorT2"
+        android:id="@+id/help_txtAuthor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
@@ -88,8 +88,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:text="@string/link_cmpt276"
-        app:layout_constraintStart_toEndOf="@+id/help_txtAuthorT3"
-        app:layout_constraintTop_toTopOf="@+id/help_txtAuthorT3" />
+        app:layout_constraintStart_toEndOf="@+id/help_txtClass"
+        app:layout_constraintTop_toTopOf="@+id/help_txtClass" />
 
     <TextView
         android:id="@+id/help_txtPoGo"

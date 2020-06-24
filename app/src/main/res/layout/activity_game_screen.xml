@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/grass_background"
     tools:context=".activites.GameScreen">
 
     <LinearLayout
@@ -25,7 +26,8 @@
             android:layout_weight="1"
             android:text="@string/found_of_mines"
             android:textAlignment="viewStart"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/game_txtScans"
@@ -34,7 +36,8 @@
             android:layout_weight="1"
             android:text="@string/scans_used"
             android:textAlignment="viewEnd"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -70,7 +73,9 @@
             android:layout_weight="1"
             android:text="@string/high_score_for_x_for_is"
             android:textAlignment="viewStart"
-            android:textSize="18sp" />
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/game_txtPlayed"
@@ -78,7 +83,8 @@
             android:layout_height="match_parent"
             android:text="@string/times_played"
             android:textAlignment="viewEnd"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 

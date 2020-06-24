@@ -14,6 +14,7 @@
     <string name="link_cmpt276"><a href="https://opencoursehub.cs.sfu.ca/jackt/grav-cms/cmpt276/home">CMPT 276</a></string>
     <string name="link_pokemongo"><a href="https://pokemongolive.com/en/">Pokemon Go</a></string>
     <string name="link_emma"><a href="https://www.deviantart.com/emma2727">Emma2727 Deviant Art</a></string>
+    <string name="link_hat"><a href="https://www.threadless.com/@Hat_Boy">Hat_Boy threadless</a></string>
     <string name="how_to_play">How to Play</string>
     <string name="htp_content"> PikaCatch is a game where the player tries to find all the Pikachu hiding in the Poke Balls.
                                 \nA given amount of Pikachu will hide in a set amount of Poke Balls and both can be changed in the options.
