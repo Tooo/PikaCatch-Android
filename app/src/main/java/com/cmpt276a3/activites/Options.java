@@ -128,7 +128,14 @@ public class Options extends AppCompatActivity {
 
     private void setupResetHighScore() {
         SharedPreferences sharedPreferences = getSharedPreferences("game stats", MODE_PRIVATE);
-
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        for (int[] boards:boardChoices) {
+            for (int mines:mineChoices) {
+                String setting = boards[0] + "x" + boards[1] + "," + mines;
+                editor.putInt(setting, -1);
+            }
+        }
+        editor.apply();
     }
     private void setupResetGamePlayed() {
         Button button = findViewById(R.id.opt_btnResetPlayed);
