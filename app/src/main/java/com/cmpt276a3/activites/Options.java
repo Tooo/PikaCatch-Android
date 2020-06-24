@@ -82,7 +82,7 @@ public class Options extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                SharedPreferences sharedPreferences = getSharedPreferences("shared", MODE_PRIVATE);
+                SharedPreferences sharedPreferences = getSharedPreferences("board settings", MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
 
                 editor.putInt("mines", mineChoices[position]);
@@ -98,7 +98,7 @@ public class Options extends AppCompatActivity {
     private void loadOptions() {
         Spinner mineSpinner = findViewById(R.id.opt_spinMines);
         Spinner boardSpinner = findViewById(R.id.opt_spinBoard);
-        SharedPreferences sharedPreferences = getSharedPreferences("shared", MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences("board settings", MODE_PRIVATE);
 
         int height = sharedPreferences.getInt("height", 4);
         int indexBoard = 0;
