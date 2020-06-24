@@ -15,6 +15,7 @@ import com.cmpt276a3.model.Game;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TableLayout;
@@ -211,5 +212,6 @@ public class GameScreen extends AppCompatActivity {
         FragmentManager manager = getSupportFragmentManager();
         Congrats dialog = new Congrats();
         dialog.show(manager, "Congrats");
+
     }
 }

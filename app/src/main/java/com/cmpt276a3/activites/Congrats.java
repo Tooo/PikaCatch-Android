@@ -42,7 +42,7 @@ public class Congrats extends AppCompatDialogFragment {
         // Build the alert
 
         return new AlertDialog.Builder(getActivity())
-                .setTitle("Game Over")
+                .setTitle("Congratulations")
                 .setView(v)
                 .setPositiveButton(android.R.string.ok, listener)
                 .create();

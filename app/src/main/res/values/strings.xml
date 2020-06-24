@@ -27,4 +27,13 @@
     <string name="high_score_for_x_for_is">High Score for ?x? for ? is:</string>
     <string name="found_of_mines">Found ? of ? Mines</string>
     <string name="times_played">Times Played: ?</string>
+    <string name="settings">Settings</string>
+    <string name="of_pikachus"># of Pikachus</string>
+    <string name="board_size">Board Size</string>
+    <string name="reset_highscore">Reset HighScore</string>
+    <string name="reset_games_played">Reset Games Played</string>
+    <string name="school_class">Class:</string>
+    <string name="congratulations">Congratulations</string>
+    <string name="you_have_found_all_the_pikachus">You have found all the pikachus!</string>
+    <string name="partypikachu">partypikachu</string>
 </resources>

@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Settings"
+        android:text="@string/settings"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
@@ -36,19 +36,19 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <Spinner
-                android:id="@+id/opt_spinBoard"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
             <TextView
                 android:id="@+id/opt_txtBoard"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Board Size"
+                android:text="@string/board_size"
                 android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/opt_spinBoard"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
 
         </LinearLayout>
 
@@ -58,19 +58,19 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <Spinner
-                android:id="@+id/opt_spinMines"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
             <TextView
                 android:id="@+id/opt_txtMines"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="# Mines"
+                android:text="@string/of_pikachus"
                 android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/opt_spinMines"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
 
         </LinearLayout>
 
@@ -82,7 +82,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="72dp"
         android:layout_marginTop="140dp"
-        android:text="Reset HighScore"
+        android:text="@string/reset_highscore"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
@@ -92,7 +92,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="68dp"
         android:layout_marginTop="24dp"
-        android:text="Reset Games Played"
+        android:text="@string/reset_games_played"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/opt_btnResetHigh" />
 
