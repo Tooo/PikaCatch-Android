@@ -26,6 +26,7 @@
             android:layout_weight="1"
             android:text="@string/found_of_mines"
             android:textAlignment="viewStart"
+            android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -36,6 +37,7 @@
             android:layout_weight="1"
             android:text="@string/scans_used"
             android:textAlignment="viewEnd"
+            android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -83,6 +85,7 @@
             android:layout_height="match_parent"
             android:text="@string/times_played"
             android:textAlignment="viewEnd"
+            android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:textStyle="bold" />
 

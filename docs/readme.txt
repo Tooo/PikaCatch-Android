@@ -3,22 +3,17 @@ Welcome:
 - Done
 Main Menu
 - Customize Buttons
-- Add Background
 Game Screen
 - Fix Strings
 - Animate Scans
 - Sound Scans
 - Vibrate Scans
 Congrats
-- Add Background
 - Slow Congrats dialog
 Options
-- Add Background
 - Make fancier
 Help
-- Add Background
 - Get other sources of backgrounds
-
 
 Optional Features:
 1.3 Welcome screen with 2+ different animations

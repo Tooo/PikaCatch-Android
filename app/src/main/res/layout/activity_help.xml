@@ -4,27 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/cave_background"
     tools:context=".activites.Help">
 
-    <ImageView
-        android:id="@+id/help_imgParty"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="16dp"
-        android:contentDescription="@string/partypikachu"
-        app:layout_constraintStart_toEndOf="@+id/help_imgPokeball"
-        app:layout_constraintTop_toBottomOf="@+id/help_txtImages"
-        app:srcCompat="@drawable/partypikachu" />
-
     <TextView
-        android:id="@+id/help_txtClass"
+        android:id="@+id/help_txtCave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:text="@string/school_class"
-        app:layout_constraintStart_toEndOf="@+id/help_txtAuthor"
-        app:layout_constraintTop_toTopOf="@+id/help_txtAuthor" />
+        android:layout_marginTop="6dp"
+        android:text="@string/link_caveman"
+        app:layout_constraintEnd_toEndOf="@+id/help_txtBack"
+        app:layout_constraintStart_toStartOf="@+id/help_txtBack"
+        app:layout_constraintTop_toBottomOf="@+id/help_txtAnony" />
 
     <TextView
         android:id="@+id/help_txtHelp"
@@ -37,18 +28,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/help_txtPlay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
-        android:text="@string/how_to_play"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/help_txtAuthorT" />
 
     <TextView
         android:id="@+id/help_txtAuthorT"
@@ -70,17 +49,13 @@
         app:layout_constraintTop_toTopOf="@+id/help_txtAuthorT" />
 
     <TextView
-        android:id="@+id/help_txtImages"
+        android:id="@+id/help_txtClass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="8dp"
-        android:linksClickable="false"
-        android:text="@string/images_used"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/help_txtHTP" />
+        android:layout_marginStart="36dp"
+        android:text="@string/school_class"
+        app:layout_constraintStart_toEndOf="@+id/help_txtAuthor"
+        app:layout_constraintTop_toTopOf="@+id/help_txtAuthor" />
 
     <TextView
         android:id="@+id/help_txtCourse"
@@ -90,6 +65,74 @@
         android:text="@string/link_cmpt276"
         app:layout_constraintStart_toEndOf="@+id/help_txtClass"
         app:layout_constraintTop_toTopOf="@+id/help_txtClass" />
+
+    <TextView
+        android:id="@+id/help_txtPlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/how_to_play"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/help_txtAuthorT" />
+
+    <TextView
+        android:id="@+id/help_txtHTP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/htp_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/help_txtPlay" />
+
+    <TextView
+        android:id="@+id/help_txtImages"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:linksClickable="false"
+        android:text="@string/resources_used"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/help_txtHTP" />
+
+    <ImageView
+        android:id="@+id/help_imgPokeball"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="24dp"
+        android:contentDescription="@string/pokeball"
+        app:layout_constraintBottom_toBottomOf="@+id/help_imgPikachu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/help_imgPikachu"
+        app:srcCompat="@drawable/pokeball" />
+
+    <ImageView
+        android:id="@+id/help_imgPikachu"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="32dp"
+        android:contentDescription="@string/pikachu"
+        app:layout_constraintStart_toEndOf="@+id/help_imgPokeball"
+        app:layout_constraintTop_toBottomOf="@+id/help_txtImages"
+        app:srcCompat="@drawable/pikachu" />
+
+    <ImageView
+        android:id="@+id/help_imgParty"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="76dp"
+        android:contentDescription="@string/partypikachu"
+        app:layout_constraintBottom_toBottomOf="@+id/help_imgPikachu"
+        app:layout_constraintStart_toEndOf="@+id/help_imgPokeball"
+        app:layout_constraintTop_toTopOf="@+id/help_imgPikachu"
+        app:srcCompat="@drawable/partypikachu" />
 
     <TextView
         android:id="@+id/help_txtPoGo"
@@ -102,57 +145,78 @@
         app:layout_constraintStart_toStartOf="@+id/help_imgPikachu"
         app:layout_constraintTop_toBottomOf="@+id/help_imgPokeball" />
 
-    <TextView
-        android:id="@+id/help_txtEmma"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="360dp"
-        android:layout_marginTop="4dp"
-        android:text="@string/link_emma"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/help_imgPikaBall" />
-
-    <ImageView
-        android:id="@+id/help_imgPokeball"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="16dp"
-        android:contentDescription="@string/pokeball"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/help_txtImages"
-        app:srcCompat="@drawable/pokeball" />
-
-    <ImageView
-        android:id="@+id/help_imgPikachu"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="16dp"
-        android:contentDescription="@string/pikachu"
-        app:layout_constraintStart_toEndOf="@+id/help_imgPokeball"
-        app:layout_constraintTop_toBottomOf="@+id/help_txtImages"
-        app:srcCompat="@drawable/pikachu" />
-
     <ImageView
         android:id="@+id/help_imgPikaBall"
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:layout_marginStart="252dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="12dp"
         android:contentDescription="@string/pikacatch"
-        app:layout_constraintStart_toEndOf="@+id/help_imgPokeball"
-        app:layout_constraintTop_toBottomOf="@+id/help_txtImages"
+        app:layout_constraintStart_toEndOf="@+id/help_imgParty"
+        app:layout_constraintTop_toBottomOf="@+id/help_txtImage"
         app:srcCompat="@drawable/pikaball" />
 
     <TextView
-        android:id="@+id/help_txtHTP"
+        android:id="@+id/help_txtEmma"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
-        android:text="@string/htp_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/help_txtPlay" />
+        android:layout_marginTop="12dp"
+        android:text="@string/link_emma"
+        app:layout_constraintEnd_toEndOf="@+id/help_imgPikaBall"
+        app:layout_constraintHorizontal_bias="0.402"
+        app:layout_constraintStart_toStartOf="@+id/help_imgPikaBall"
+        app:layout_constraintTop_toBottomOf="@+id/help_imgPikaBall" />
+
+    <TextView
+        android:id="@+id/help_txtImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/images"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/help_txtImages"
+        app:layout_constraintTop_toBottomOf="@+id/help_txtImages" />
+
+    <TextView
+        android:id="@+id/help_txtBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="276dp"
+        android:text="@string/background"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/help_txtImages"
+        app:layout_constraintTop_toBottomOf="@+id/help_txtImages" />
+
+    <TextView
+        android:id="@+id/help_txtLG"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/link_lg"
+        app:layout_constraintEnd_toEndOf="@+id/help_txtBack"
+        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintStart_toStartOf="@+id/help_txtBack"
+        app:layout_constraintTop_toBottomOf="@+id/help_txtBack" />
+
+    <TextView
+        android:id="@+id/help_txtHat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="@string/link_hat"
+        app:layout_constraintEnd_toEndOf="@+id/help_txtBack"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="@+id/help_txtBack"
+        app:layout_constraintTop_toBottomOf="@+id/help_txtLG" />
+
+    <TextView
+        android:id="@+id/help_txtAnony"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="@string/link_anony"
+        app:layout_constraintEnd_toEndOf="@+id/help_txtBack"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="@+id/help_txtBack"
+        app:layout_constraintTop_toBottomOf="@+id/help_txtHat" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
