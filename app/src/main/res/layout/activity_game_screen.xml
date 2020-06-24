@@ -7,7 +7,7 @@
     tools:context=".activites.GameScreen">
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/game_layoutTop"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Found ? of ? Mines"
+            android:text="@string/found_of_mines"
             android:textAlignment="viewStart"
             android:textSize="18sp" />
 
@@ -32,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="# Scans used: ?"
+            android:text="@string/scans_used"
             android:textAlignment="viewEnd"
             android:textSize="18sp" />
 
@@ -46,22 +46,40 @@
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
-        app:layout_constraintBottom_toTopOf="@+id/game_txtPlayed"
+        app:layout_constraintBottom_toTopOf="@id/game_layoutBottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/game_layoutTop" />
 
-    <TextView
-        android:id="@+id/game_txtPlayed"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/game_layoutBottom"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="16dp"
-        android:text="Times Played: ?"
-        android:textSize="18sp"
+        android:layout_marginStart="16dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/game_txtHighScore"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/high_score_for_x_for_is"
+            android:textAlignment="viewStart"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/game_txtPlayed"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/times_played"
+            android:textAlignment="viewEnd"
+            android:textSize="18sp" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

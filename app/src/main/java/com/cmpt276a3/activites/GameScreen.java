@@ -178,10 +178,21 @@ public class GameScreen extends AppCompatActivity {
 
     private void updateInitialStats() {
         SharedPreferences sharedPreferences = getSharedPreferences("game stats", MODE_PRIVATE);
-        timesPlayed = sharedPreferences.getInt("played", 0);
 
+        timesPlayed = sharedPreferences.getInt("played", 0);
         TextView textPlayed = findViewById(R.id.game_txtPlayed);
-        textPlayed.setText("Times Played:" + timesPlayed);
+        textPlayed.setText("Times Played: " + timesPlayed);
+
+        String setting = height + "x" + width + "," + game.getTotalMines();
+        highScore = sharedPreferences.getInt(setting, -1);
+        TextView textHigh = findViewById(R.id.game_txtHighScore);
+
+        if (highScore == -1) {
+            textHigh.setText("HighScore for " + setting + " Pikachu: N/A");
+        } else {
+            textHigh.setText("HighScore for " + setting + " Pikachu:" + highScore);
+        }
+
     }
 
     private void endGame() {
@@ -190,6 +201,11 @@ public class GameScreen extends AppCompatActivity {
 
         timesPlayed++;
         editor.putInt("played", timesPlayed);
+        String setting = height + "x" + width + "," + game.getTotalMines();
+
+        if (highScore == -1 || highScore > game.getScansUsed()) {
+            editor.putInt(setting, game.getScansUsed());
+        }
         editor.apply();
 
         FragmentManager manager = getSupportFragmentManager();

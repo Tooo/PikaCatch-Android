@@ -51,7 +51,7 @@ public class Options extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                SharedPreferences sharedPreferences = getSharedPreferences("shared", MODE_PRIVATE);
+                SharedPreferences sharedPreferences = getSharedPreferences("board settings", MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
 
                 editor.putInt("width", boardChoices[position][1]);

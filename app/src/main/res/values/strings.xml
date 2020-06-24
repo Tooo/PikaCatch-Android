@@ -23,4 +23,8 @@
     <string name="images_used">Images Used</string>
     <string name="images_content">About Game</string>
     <string name="author">Author:</string>
+    <string name="scans_used"># Scans used: ?</string>
+    <string name="high_score_for_x_for_is">High Score for ?x? for ? is:</string>
+    <string name="found_of_mines">Found ? of ? Mines</string>
+    <string name="times_played">Times Played: ?</string>
 </resources>
