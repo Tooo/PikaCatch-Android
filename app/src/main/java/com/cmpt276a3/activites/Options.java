@@ -45,8 +45,6 @@ public class Options extends AppCompatActivity {
             boardStringList[i] = rows + " x " + cols;
         }
 
-
-
         Spinner spinner = findViewById(R.id.opt_spinBoard);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(Options.this, android.R.layout.simple_spinner_item, boardStringList);
         spinner.setAdapter(adapter);
@@ -126,16 +124,24 @@ public class Options extends AppCompatActivity {
     }
 
     private void setupResetHighScore() {
-        SharedPreferences sharedPreferences = getSharedPreferences("game stats", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        for (int[] boards:boardChoices) {
-            for (int mines:mineChoices) {
-                String setting = boards[0] + "x" + boards[1] + ", " + mines;
-                editor.putInt(setting, -1);
+        Button button = findViewById(R.id.opt_btnResetHigh);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences sharedPreferences = getSharedPreferences("game stats", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                for (int[] boards:boardChoices) {
+                    for (int mines:mineChoices) {
+                        String setting = getResources().getString(R.string.setting);
+                        setting = String.format(setting, boards[0], boards[1], mines);
+                        editor.putInt(setting, -1);
+                    }
+                }
+                editor.apply();
             }
-        }
-        editor.apply();
+        });
     }
+
     private void setupResetGamePlayed() {
         Button button = findViewById(R.id.opt_btnResetPlayed);
         button.setOnClickListener(new View.OnClickListener() {

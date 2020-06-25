@@ -62,7 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="68dp"
         android:fontFamily="sans-serif"
-        android:text="@string/pikacatch"
+        android:text="@string/app_name"
         android:textAllCaps="false"
         android:textColor="#FFEB3B"
         android:textSize="50sp"

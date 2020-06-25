@@ -12,6 +12,7 @@ public class Game {
     private int foundMines = 0;
     private int totalMines;
     private int scansUsed = 0;
+    private boolean isGameOver = false;
 
     public Game(int height, int width, int mines) {
         board = new Board(height, width);
@@ -107,6 +108,10 @@ public class Game {
                 cell.setScanNumber(cell.getScanNumber()-1);
             }
         }
+
+        if (totalMines == foundMines) {
+            isGameOver = true;
+        }
     }
 
     public Board getBoard() {
@@ -123,5 +128,9 @@ public class Game {
 
     public int getScansUsed() {
         return scansUsed;
+    }
+
+    public boolean isGameOver() {
+        return isGameOver;
     }
 }

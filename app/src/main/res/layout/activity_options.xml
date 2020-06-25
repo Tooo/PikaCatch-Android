@@ -8,11 +8,11 @@
     tools:context=".activites.Options">
 
     <TextView
-        android:id="@+id/opt_txtSettings"
+        android:id="@+id/opt_txtOptions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/settings"
+        android:text="@string/options"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
@@ -28,7 +28,7 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/opt_txtSettings"
+        app:layout_constraintTop_toBottomOf="@+id/opt_txtOptions"
         app:layout_constraintVertical_bias="0.06999999">
 
         <LinearLayout
@@ -40,7 +40,7 @@
             <TextView
                 android:id="@+id/opt_txtBoard"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/board_size"
                 android:textSize="18sp" />
@@ -64,7 +64,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/of_pikachus"
+                android:text="@string/of_pikachu"
                 android:textSize="18sp" />
 
             <Spinner
