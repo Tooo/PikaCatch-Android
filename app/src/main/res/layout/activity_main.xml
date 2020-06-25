@@ -21,8 +21,10 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="200dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="200dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
@@ -33,18 +35,21 @@
             android:id="@+id/main_btnStart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/pokebutton"
             android:text="@string/play_game" />
 
         <Button
             android:id="@+id/main_btnOptions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/pokebutton"
             android:text="@string/options" />
 
         <Button
             android:id="@+id/main_btnHelp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/pokebutton"
             android:text="@string/help" />
     </LinearLayout>
 
