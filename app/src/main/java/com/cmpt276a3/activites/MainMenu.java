@@ -1,16 +1,13 @@
 package com.cmpt276a3.activites;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.IntentCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 
 import com.cmpt276a3.R;
-import com.cmpt276a3.model.Game;
 
 /**
  * MainMenu class manages the Main activity

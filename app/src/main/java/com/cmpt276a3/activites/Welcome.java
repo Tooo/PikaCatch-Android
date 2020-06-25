@@ -1,15 +1,13 @@
 package com.cmpt276a3.activites;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.Guideline;
 
-import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.text.Layout;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;

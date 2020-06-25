@@ -17,7 +17,6 @@ import com.cmpt276a3.model.Game;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
-import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.view.View;
 import android.widget.Button;
@@ -153,9 +152,6 @@ public class GameScreen extends AppCompatActivity {
 
     private void cellButtonClicked(int x, int y) {
         Button button = buttons[y][x];
-        Board board = game.getBoard();
-        Cell[][] boardArray = board.getBoardArray();
-        Cell cell = boardArray[y][x];
 
         // When dialog hidden click off, force Game Over
         if (game.isGameOver()) {
