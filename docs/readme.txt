@@ -4,7 +4,6 @@ Welcome:
 Main Menu
 - Customize Buttons
 Game Screen
-- Fix Strings
 - Animate Scans
 - Sound Scans
 - Vibrate Scans

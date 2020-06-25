@@ -25,7 +25,7 @@
     <!-- Options -->
     <string name="board_size">Board Size</string>
     <string name="of_pikachu"># of Pikachu</string>
-    <string name="reset_highscore">Reset HighScore</string>
+    <string name="reset_highscore">Reset High Score</string>
     <string name="reset_games_played">Reset Games Played</string>
     <!-- Help  -->
     <string name="author">Author:</string>

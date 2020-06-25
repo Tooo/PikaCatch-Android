@@ -23,10 +23,11 @@
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/opt_txtOptions"
         app:layout_constraintVertical_bias="0.06999999">
@@ -81,8 +82,8 @@
         android:id="@+id/opt_btnResetHigh"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="64dp"
         android:text="@string/reset_highscore"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
@@ -91,10 +92,11 @@
         android:id="@+id/opt_btnResetPlayed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="220dp"
         android:text="@string/reset_games_played"
+        app:layout_constraintBottom_toBottomOf="@+id/opt_btnResetHigh"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/opt_btnResetHigh" />
+        app:layout_constraintTop_toTopOf="@+id/opt_btnResetHigh"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
