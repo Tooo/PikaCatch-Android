@@ -43,21 +43,22 @@ public class Game {
         }
     }
 
-    public void cellClicked(int xScan, int yScan) {
+    // Return 0 = Nothing, 1 = Mine found, 2 = Normal Scan, 3 = Mine Scan
+    public int cellClicked(int xScan, int yScan) {
         Cell[][] boardArray = board.getBoardArray();
         Cell scanCell = boardArray[yScan][xScan];
         int height = board.getHeight();
         int width = board.getWidth();
 
+        // Already clicked non-mine or Scanned Mine
+        if (scanCell.hasScanned()) {
+            return 0;
+        }
+
         // Mine found
         if (scanCell.hasMine() && !scanCell.isClicked()) {
             mineFound(xScan, yScan);
-            return;
-        }
-
-        // Already clicked non-mine or Scanned Mine
-        if (scanCell.hasScanned()) {
-            return;
+            return 1;
         }
 
         scanCell.setClicked(true);
@@ -82,6 +83,11 @@ public class Game {
         }
 
         scanCell.setScanNumber(mineCount);
+        if (scanCell.hasMine()) {
+            return 3;
+        }
+
+        return 2;
     }
 
     private void mineFound(int xScan, int yScan) {

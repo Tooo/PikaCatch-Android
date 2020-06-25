@@ -1,6 +1,7 @@
 package com.cmpt276a3.activites;
 
 import android.animation.ObjectAnimator;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -16,6 +17,8 @@ import com.cmpt276a3.model.Game;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TableLayout;
@@ -160,9 +163,10 @@ public class GameScreen extends AppCompatActivity {
             return;
         }
 
-        game.cellClicked(x, y);
-        if (cell.hasMine() && !cell.hasScanned()) {
+        // Return 0 = Nothing, 1 = Mine found, 2 = Normal Scan, 3 = Mine Scan
+        int scenario = game.cellClicked(x, y);
 
+        if (scenario == 1) {
             updateCellNumbers(x,y);
             lockButtonSizes();
 
@@ -172,14 +176,16 @@ public class GameScreen extends AppCompatActivity {
             Bitmap scaledBitmap = Bitmap.createScaledBitmap(originalBitmap, newWidth, newHeight, true);
             Resources resource = getResources();
             button.setBackground(new BitmapDrawable(resource, scaledBitmap));
+            vibratePhone(true);
 
-        } else if (cell.hasMine() && cell.hasScanned()) {
+        } else if (scenario != 0) {
             setScanNumberText(x, y);
             animateScan(x, y);
-        } else {
-            setScanNumberText(x, y);
-            button.setBackground(null);
-            animateScan(x, y);
+            vibratePhone(false);
+
+            if (scenario == 2) {
+                button.setBackground(null);
+            }
         }
 
         updateGameStats();
@@ -264,9 +270,25 @@ public class GameScreen extends AppCompatActivity {
     }
 
     private void shakeButton(Button button) {
+        ObjectAnimator buttonFix = ObjectAnimator.ofFloat(button, "rotation", 0);
+        buttonFix.setDuration(0);
+        buttonFix.start();
+
         ObjectAnimator buttonShake = ObjectAnimator.ofFloat(button, "rotation", button.getRotation()+360);
         buttonShake.setDuration(200);
         buttonShake.start();
+    }
+
+    private void vibratePhone(boolean mineCell) {
+        Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        long[] pattern;
+        if (mineCell) {
+            pattern = new long[]{0, 100};
+        } else {
+            pattern = new long[]{0, 50};
+        }
+        v.vibrate(pattern, -1);
+
     }
 
     private void endGame() {
