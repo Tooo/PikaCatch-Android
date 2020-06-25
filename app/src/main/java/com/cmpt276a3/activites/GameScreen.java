@@ -1,5 +1,6 @@
 package com.cmpt276a3.activites;
 
+import android.animation.ObjectAnimator;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -174,9 +175,11 @@ public class GameScreen extends AppCompatActivity {
 
         } else if (cell.hasMine() && cell.hasScanned()) {
             setScanNumberText(x, y);
+            animateScan(x, y);
         } else {
             setScanNumberText(x, y);
             button.setBackground(null);
+            animateScan(x, y);
         }
 
         updateGameStats();
@@ -233,6 +236,37 @@ public class GameScreen extends AppCompatActivity {
             String scanNumberString = String.valueOf(cell.getScanNumber());
             button.setText(scanNumberString);
         }
+    }
+
+    private void animateScan(int xScan, int yScan) {
+        Board board = game.getBoard();
+        int height = board.getHeight();
+        int width = board.getWidth();
+        Cell[][] boardArray = board.getBoardArray();
+        Button button;
+
+        // Scan row
+        for (int x = 0; x < width; x++) {
+            if (!boardArray[yScan][x].isClicked()) {
+                button = buttons[yScan][x];
+                shakeButton(button);
+            }
+        }
+
+        // Scan column
+        for (int y = 0; y < height; y++) {
+            if (!boardArray[y][xScan].isClicked()) {
+                button = buttons[y][xScan];
+                shakeButton(button);
+            }
+        }
+
+    }
+
+    private void shakeButton(Button button) {
+        ObjectAnimator buttonShake = ObjectAnimator.ofFloat(button, "rotation", button.getRotation()+360);
+        buttonShake.setDuration(200);
+        buttonShake.start();
     }
 
     private void endGame() {
