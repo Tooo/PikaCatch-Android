@@ -23,7 +23,7 @@ public class Help extends AppCompatActivity {
     }
 
     private void setupLinks() {
-        int[] idLinks = {R.id.help_txtCourse, R.id.help_txtPoGo, R.id.help_txtEmma, R.id.help_txtLG, R.id.help_txtHat, R.id.help_txtAnony, R.id.help_txtCave};
+        int[] idLinks = {R.id.help_txtPoGo, R.id.help_txtEmma, R.id.help_txtLG, R.id.help_txtHat, R.id.help_txtAnony, R.id.help_txtCave};
 
         for (int link:idLinks) {
             TextView textView = findViewById(link);

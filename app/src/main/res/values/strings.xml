@@ -1,7 +1,7 @@
 <resources>
     <!-- Welcome -->
     <string name="app_name">PikaCatch</string>
-    <string name="author_name">Travis Chan</string>
+    <string name="author_name">Toooo123</string>
     <string name="skip">Skip</string>
     <string name="pikachu">Pikachu</string>
     <string name="pokeball">Pokeball</string>
@@ -39,7 +39,6 @@
     <string name="resources_used">Resources Used</string>
     <string name="images">Images</string>
     <string name="background">Background</string>
-    <string name="link_cmpt276"><a href="https://opencoursehub.cs.sfu.ca/jackt/grav-cms/cmpt276/home">CMPT 276</a></string>
     <string name="link_pokemongo"><a href="https://pokemongolive.com/en/">Pokemon Go</a></string>
     <string name="link_emma"><a href="https://www.deviantart.com/emma2727">Emma2727 Deviant Art</a></string>
     <string name="link_lg"><a href="https://pokemonletsgo.pokemon.com/en-ca/">Let\'s go Pikachu</a></string>
