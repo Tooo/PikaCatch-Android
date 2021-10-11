@@ -12,7 +12,7 @@ Play in a range of board sizes and Pikachu count.
 2. Click "Get From Version Control"
 3. Insert the following URL:
 ```
-https://github.com/Toooo123/PikaCatch-Android.git
+https://github.com/Tooo/PikaCatch-Android.git
 ```
 4. Run app on either an Android Emulator or your phone plugged into your computer
 
